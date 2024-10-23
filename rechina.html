@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viability and Revenue Calculator</title>
+
+    <!-- Link para fontes externas -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilo personalizado -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('imagem2.npg.png'); /* Atualize aqui com o nome correto da sua imagem */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .room-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Viability and Revenue Calculator</h1>
+        
+        <form>
+            <label for="numAlunos">Número de Alunos na Escola:</label>
+            <input type="number" id="numAlunos" name="numAlunos"><br><br>
+
+            <label for="percentConversao">% Conversão:</label>
+            <input type="number" id="percentConversao" name="percentConversao" step="0.01"><br><br>
+
+            <label for="ticketMedio">Ticket Médio por Aluno (R$):</label>
+            <input type="number" id="ticketMedio" name="ticketMedio" step="0.01"><br><br>
+
+            <label for="alunosPorTurma">Capacidade de Alunos por Turma:</label>
+            <input type="number" id="alunosPorTurma" name="alunosPorTurma"><br><br>
+
+            <label for="horasFunc">Horas de Funcionamento por Dia:</label>
+            <input type="number" id="horasFunc" name="horasFunc"><br><br>
+
+            <label for="numSalas">Número de Salas:</label>
+            <input type="number" id="numSalas" name="numSalas" onchange="generateRooms()"><br><br>
+
+            <div id="roomFields"></div> <!-- Aqui serão gerados os campos para as salas -->
+
+            <button type="button" onclick="calculateViability()">Calcular</button>
+        </form>
+        
+        <div id="result"></div>
+    </div>
+</body>
+</html>
